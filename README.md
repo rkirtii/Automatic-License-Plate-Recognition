@@ -43,12 +43,12 @@ numpy
 
 Input image
 
-![](https://github.com/rkirtii/Python/assets/142138548/e6002d41-dff1-4f96-8fae-9f13e8f756f5)
+![Screenshot](https://github.com/rkirtii/Python/assets/142138548/e6002d41-dff1-4f96-8fae-9f13e8f756f5)
 
 Processed image
 
-![](https://github.com/rkirtii/Python/assets/142138548/711a4559-bc75-49ce-8eaf-1902f4bab553)
+![Screenshot](https://github.com/rkirtii/Python/assets/142138548/711a4559-bc75-49ce-8eaf-1902f4bab553)
 
 Final output
 
-![](https://github.com/rkirtii/Python/assets/142138548/3aca8a8b-2524-474f-b788-9958a3ee5dad)
+![Screenshot](https://github.com/rkirtii/Python/assets/142138548/3aca8a8b-2524-474f-b788-9958a3ee5dad)
