@@ -6,8 +6,11 @@ cropped_image = cv2.imread('./output/ROI.jpg')
 gray = cv2.cvtColor(cropped_image, cv2.COLOR_BGR2GRAY)
 cv2.imshow('gray', gray)
 
+
+
 bilateral_filtered = cv2.bilateralFilter(gray, 11, 50, 50)
 cv2.imshow('Bilateral Filtered', bilateral_filtered)
+
 
 ret, plate_inverse_threshold = cv2.threshold(bilateral_filtered, 115, 255, cv2.THRESH_BINARY_INV)
 cv2.imshow('Threshold', plate_inverse_threshold)
@@ -16,6 +19,9 @@ cv2.imshow('Threshold', plate_inverse_threshold)
 # Vertical and Horizontal Scanning to reduce the region of interest
 middle_x = int(plate_inverse_threshold.shape[0]/2)
 middle_y = int(plate_inverse_threshold.shape[1]/2)
+# while True:
+#     if cv2.waitKey(1)==ord('q'):
+#         break
 
 
 def getTopCoordinate():
@@ -28,15 +34,18 @@ def getTopCoordinate():
             else:
                 black_count += 1
         
-        ratio = 400
+        ratio = 400         #calculates a ratio for each row.
+                            # This ratio essentially quantifies the balance between white and black pixels in the row. A high ratio means there are more white pixels relative to black pixels, indicating a region that is predominantly white. Conversely, a low ratio means there are more black pixels relative to white pixels, suggesting a predominantly black region.
         
         if(black_count != 0):
-            ratio = white_count/black_count
+            ratio = white_count/black_count         
         
-        #print((white_count,black_count, ratio))
-        if(ratio > 10 or ratio < 0.3):
-            return x
-    
+        # print((white_count,black_count, ratio))
+        if(ratio > 10 or ratio < 0.3):          #If the calculated ratio for a given row is greater than 10 (meaning there are significantly more white pixels than black pixels) or less than 0.3 (meaning there are significantly more black pixels than white pixels), it indicates that the balance of pixel colors in that row is skewed.
+            return x                            #A ratio greater than 10 suggests a predominantly white region, which might indicate the top part of the area of interest, like the top of a license plate.
+                                                #A ratio less than 0.3 suggests a predominantly black region, which might indicate the presence of text or symbols (e.g., characters on a license plate).
+
+
     return 0
 
 def getBottomCoordinate():
@@ -54,7 +63,7 @@ def getBottomCoordinate():
         if(black_count != 0):
             ratio = white_count/black_count
         
-        print(ratio)
+        # print(ratio)
         if(ratio > 10 or ratio < 0.3):
             return x
         
@@ -102,21 +111,26 @@ top = getTopCoordinate()
 bottom = getBottomCoordinate()
 left = getLeftCoordinate()
 right = getRightCoordinate()
+print(top)
+print(bottom)
+print(left)
+print(right)
+
 #img1 = cropped_image[top:bottom, left:right]
 #cv2.imshow('cropped', img1)
 
-for l in range(1,7):
-    if(top-l >= 0):
-        top = top-l
+for i in range(1,7):        # Making adjustments to the coordinates of a region of interest by expanding the ROI in all directions (up, down, left, and right) by a certain number of pixels. 
+    if(top-i >= 0):
+        top = top-i
     
-    if(bottom+l < cropped_image.shape[0]):
-        bottom = bottom+l
+    if(bottom+i < cropped_image.shape[0]):
+        bottom = bottom+i
     
-    if(left-l >= 0):
-        left = left-l
+    if(left-i >= 0):
+        left = left-i
     
-    if(right+l < cropped_image.shape[1]):
-        right = right+l
+    if(right+i < cropped_image.shape[1]):
+        right = right+i
 
 img = cropped_image[top:bottom, left:right]
 cv2.imshow('crop', img)
