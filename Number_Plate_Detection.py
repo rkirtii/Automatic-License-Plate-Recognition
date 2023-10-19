@@ -117,7 +117,7 @@ print(left)
 print(right)
 
 #img1 = cropped_image[top:bottom, left:right]
-#cv2.imshow('cropped', img1)
+#cv2.imshow('cropped', img1) 
 
 for i in range(1,7):        # Making adjustments to the coordinates of a region of interest by expanding the ROI in all directions (up, down, left, and right) by a certain number of pixels. 
     if(top-i >= 0):
