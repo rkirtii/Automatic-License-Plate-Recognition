@@ -49,7 +49,7 @@ python3 Character_Recognition.py
 ```
 
 ```bash
-Python3 Character_Recognition_Better.py 
+python3 Character_Recognition_Better.py 
 ```
 
 
