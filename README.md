@@ -1,8 +1,33 @@
 # Project Title
 
 Automatic License Plate Recognition System (ALPR)
-## Compile & Run
 
+
+## Installing virtual env and necessary packages
+
+Create and activate virtual env.
+
+```bash
+python3 -m venv ALPR
+```
+
+
+Activating the virtual env
+
+
+```bash
+source ALPR/bin/activate
+```
+
+
+Installing necessary packages
+
+```bash
+pip3 install tensorflow
+```
+
+## Compile & Run
+Run the below codes in sequence to process the image and train the model for character recognition.
 
 
 ```bash
