@@ -42,10 +42,12 @@ numpy
 ## Screenshots
 
 Input image
+
 ![e6002d41-dff1-4f96-8fae-9f13e8f756f5](https://github.com/rkirtii/Automatic-License-Plate-Recognition/assets/142138548/a7796f8e-63b7-42ad-a5e1-4cee06d29f21)
 
 
 Processed image
+
 ![711a4559-bc75-49ce-8eaf-1902f4bab553](https://github.com/rkirtii/Automatic-License-Plate-Recognition/assets/142138548/0a0ac0d3-9dde-45c0-8553-4d397430172b)
 
 
