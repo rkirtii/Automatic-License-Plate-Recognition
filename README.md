@@ -23,7 +23,7 @@ source ALPR/bin/activate
 Installing necessary packages
 
 ```bash
-pip3 install -r requirements
+pip3 install -r requirements.txt
 ```
 
 ## Compile & Run
