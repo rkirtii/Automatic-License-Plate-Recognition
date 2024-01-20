@@ -23,7 +23,7 @@ source ALPR/bin/activate
 Installing necessary packages
 
 ```bash
-pip3 install tensorflow
+pip3 install -r requirements
 ```
 
 ## Compile & Run
